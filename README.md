@@ -6,7 +6,7 @@ Yingyan Li*, Yuqi Wang*, Yang Liu, Jiawei He, Lue Fan† and Zhaoxiang Zhang†
 We present **WoTE**, an end-to-end autonomous driving framework that leverages a BEV-based world model to predict future agent states, enabling online trajectory evaluation and selection.
 
 <p align="center">
-  <img src="assets/fig1.jpg" alt="WoTE Framework" width="700"/>
+  <img src="assets/fig1.jpg" alt="WoTE Framework" width="1000"/>
 </p>
 
 ---
