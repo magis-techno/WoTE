@@ -111,7 +111,7 @@ bash scripts/training/run_wote.sh
 
 ## 📊 4. Results & Checkpoints
 
-| Method | NC (%) | DAC (%) | EP (%) | TTC (%) | Comfort (%) | PDMS (%) | Checkpoint |
+| Method | NC  | DAC  | EP  | TTC  | Comfort  | PDMS | Checkpoint |
 |:------:|:------:|:-------:|:------:|:--------:|:-----------:|:--------:|:----------:|
 | **WoTE** | **98.4** | **95.8** | **79.9** | **95.1** | **100.0** | **87.0** | [📥 Download](https://drive.google.com/drive/folders/1dIHK8nXkzhIhGCRQOpKibaizwH-7fHqs?usp=sharing) |
 
