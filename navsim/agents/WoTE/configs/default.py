@@ -141,7 +141,7 @@ class WoTEConfig:
     num_sampled_trajs: int = 1
 
     # recurrent
-    num_fut_timestep = 2
+    num_fut_timestep = 1
     use_traj_offset = True
 
     # optmizer

@@ -111,9 +111,13 @@ bash scripts/training/run_wote.sh
 
 ## 📊 4. Results & Checkpoints
 
-| Method | NC  | DAC  | EP  | TTC  | Comfort  | PDMS | Checkpoint |
-|:------:|:------:|:-------:|:------:|:--------:|:-----------:|:--------:|:----------:|
-| **WoTE** | **98.4** | **95.8** | **79.9** | **95.1** | **100.0** | **87.0** | [📥 Download](https://drive.google.com/drive/folders/1dIHK8nXkzhIhGCRQOpKibaizwH-7fHqs?usp=sharing) |
+| Method     | NC   | DAC  | EP   | TTC  | Comfort | PDMS | Training Time | GPU Memory | Checkpoint |
+|:----------:|:----:|:----:|:----:|:----:|:-------:|:----:|:--------------:|:-----------:|:----------:|
+| **WoTE**   | **98.5** | **96.8** | **81.9** | **94.9** | **99.9**  | **88.3** | **3 hrs** | **22 GB**   | [📥 Download](https://drive.google.com/drive/folders/1dIHK8nXkzhIhGCRQOpKibaizwH-7fHqs?usp=sharing) |
+
+*Training conducted on 8 NVIDIA L20 GPUs.*  
+*We optimized some hyperparameters, so the performance of the repository is slightly improved compared to the paper.*
+
 
 > **Legend**  
 > • NC: No Collision  

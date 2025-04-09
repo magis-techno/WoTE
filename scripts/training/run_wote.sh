@@ -14,14 +14,14 @@ agent=WoTE_agent \
 agent.config._target_=navsim.agents.WoTE.configs.${CONFIG_NAME}.WoTEConfig \
 experiment_name=WoTE/${CONFIG_NAME} \
 scene_filter=navtrain \
-dataloader.params.batch_size=32 \
+dataloader.params.batch_size=16 \
 trainer.params.max_epochs=30  \
 split=trainval 
 
 # evaluation
 python ./navsim/planning/script/run_pdm_score.py \
 agent=WoTE_agent \
-'agent.checkpoint_path="/home/yingyan.li/repo/WoTE/exp/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=9990.ckpt"' \
+'agent.checkpoint_path="/home/yingyan.li/repo/WoTE/exp/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=19950.ckpt"' \
 agent.config._target_=navsim.agents.WoTE.configs.${CONFIG_NAME}.WoTEConfig \
 experiment_name=eval/WoTE/${CONFIG_NAME}/ \
 split=test \
