@@ -128,7 +128,7 @@ bash scripts/evaluation/eval_wote.sh
 > • DAC: Drivable Area Compliance  
 > • EP: Ego Progress  
 > • TTC: Time to Collision  
-> • Comfort: Motion Smoothness  
-> • PDMS: Planning Diversity and Metric Score
+> • Comfort: Comfort
+> • PDMS: Predictive Driver Model Score
 
 ---
