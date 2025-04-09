@@ -107,6 +107,10 @@ Then launch training:
 bash scripts/training/run_wote.sh
 ```
 
+Evaluation:
+```bash
+bash scripts/evaluation/eval_wote.sh
+```
 ---
 
 ## 📊 4. Results & Checkpoints
