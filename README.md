@@ -10,8 +10,27 @@ We present **WoTE**, an end-to-end autonomous driving framework that leverages a
 </p>
 
 ---
+## 📊 1. Results & Checkpoints
 
-## 📦 1. Dataset & File Structure
+| Method     | NC   | DAC  | EP   | TTC  | Comfort | PDMS | Training Time | GPU Memory | Checkpoint |
+|:----------:|:----:|:----:|:----:|:----:|:-------:|:----:|:--------------:|:-----------:|:----------:|
+| **WoTE**   | **98.5** | **96.8** | **81.9** | **94.9** | **99.9**  | **88.3** | **3 hrs** | **22 GB**   | [📥 Download](https://drive.google.com/drive/folders/1dIHK8nXkzhIhGCRQOpKibaizwH-7fHqs?usp=sharing) |
+
+*Training conducted on 8 NVIDIA L20 GPUs.*  
+
+
+> **Legend**  
+> • NC: No Collision  
+> • DAC: Drivable Area Compliance  
+> • EP: Ego Progress  
+> • TTC: Time to Collision  
+> • Comfort: Comfort
+> • PDMS: Predictive Driver Model Score
+
+---
+
+
+## 📦 2. Dataset & File Structure
 
 ```bash
 root/
@@ -65,7 +84,7 @@ bash scripts/evaluation/run_metric_caching.sh
 
 ---
 
-## ⚙️ 2. Installation
+## ⚙️ 3. Installation
 
 Create the conda environment:
 
@@ -93,7 +112,7 @@ export OPENSCENE_DATA_ROOT="$HOME/navsim_workspace/dataset"
 
 ---
 
-## 🚀 3. Training & Evaluation
+## 🚀 4. Training & Evaluation
 
 Update paths in:
 
@@ -113,22 +132,3 @@ bash scripts/evaluation/eval_wote.sh
 ```
 ---
 
-## 📊 4. Results & Checkpoints
-
-| Method     | NC   | DAC  | EP   | TTC  | Comfort | PDMS | Training Time | GPU Memory | Checkpoint |
-|:----------:|:----:|:----:|:----:|:----:|:-------:|:----:|:--------------:|:-----------:|:----------:|
-| **WoTE**   | **98.5** | **96.8** | **81.9** | **94.9** | **99.9**  | **88.3** | **3 hrs** | **22 GB**   | [📥 Download](https://drive.google.com/drive/folders/1dIHK8nXkzhIhGCRQOpKibaizwH-7fHqs?usp=sharing) |
-
-*Training conducted on 8 NVIDIA L20 GPUs.*  
-*We optimized some hyperparameters, so the performance of the repository is slightly improved compared to the paper.*
-
-
-> **Legend**  
-> • NC: No Collision  
-> • DAC: Drivable Area Compliance  
-> • EP: Ego Progress  
-> • TTC: Time to Collision  
-> • Comfort: Comfort
-> • PDMS: Predictive Driver Model Score
-
----
