@@ -57,4 +57,4 @@ class AgentLightningModule(pl.LightningModule):
     def backward(self, loss):
         # print('set detect anomaly')
         # torch.autograd.set_detect_anomaly(True)
-        loss.backward(retain_graph=True)
+        loss.backward()

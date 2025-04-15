@@ -56,6 +56,7 @@ root/
 To obtain the [navsim dataset](https://github.com/autonomousvision/navsim/tree/main):
 
 ```bash
+bash download/download_maps.sh
 bash download/download_navtrain.sh
 bash download/download_test.sh
 ```
