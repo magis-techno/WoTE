@@ -133,3 +133,11 @@ bash scripts/evaluation/eval_wote.sh
 ```
 ---
 
+
+---
+
+## 🔍 5. More from Us
+
+If you're interested in **world models** for autonomous driving, feel free to check out our related work:
+
+- [**LAW (ICLR 2025)**](https://github.com/BraveGroup/LAW): Using latent world models for self-supervised feature learning in end-to-end autonomous driving.
