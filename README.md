@@ -1,4 +1,4 @@
-# 🚗 End-to-End Driving with Online Trajectory Evaluation via BEV World Model
+# 🚗 End-to-End Driving with Online Trajectory Evaluation via BEV World Model (ICCV2025)
 
 Yingyan Li*, Yuqi Wang*, Yang Liu, Jiawei He, Lue Fan† and Zhaoxiang Zhang†
 [[📄 Paper (arXiv:2504.01941)]](https://arxiv.org/abs/2504.01941)
