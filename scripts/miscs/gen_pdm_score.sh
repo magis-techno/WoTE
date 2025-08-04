@@ -1,3 +1,7 @@
+# Ensure environment variables are set
+# Please run: source setup_env.sh first
+export PYTHONPATH=$WOTE_PROJECT_ROOT/
+
 python scripts/miscs/gen_multi_trajs_pdm_score.py \
 agent=WoTE_agent \
 'agent.checkpoint_path="$NAVSIM_EXP_ROOT/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=9990.ckpt"' \
