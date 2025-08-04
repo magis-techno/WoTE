@@ -196,7 +196,7 @@ def pdm_score_multi_trajs(
 
     # simulated_states_rel = extract_relative_trajectory(simulated_states)
     # from time import time
-    # vis_dir = f'/data2/yingyan_li/repo/WoTE//vis/simulated_trajs_{time()}'
+    # vis_dir = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), f'vis/simulated_trajs_{time()}')
     # visualize_trajectories(trajectory_states, simulated_states, vis_dir=vis_dir)
     # print('only save simulated_states')
     # return simulated_states_rel
@@ -267,7 +267,7 @@ def extract_relative_trajectory(simulated_states: np.ndarray) -> np.ndarray:
     return relative_trajectory
 
 
-def visualize_trajectories(trajectory_states, simulated_states, vis_dir='/data2/yingyan_li/repo/WoTE//vis/simulated_trajs'):
+def visualize_trajectories(trajectory_states, simulated_states, vis_dir=None):
     """
     Visualize predicted and simulated trajectories in BEV.
 
@@ -279,6 +279,10 @@ def visualize_trajectories(trajectory_states, simulated_states, vis_dir='/data2/
     - vis_dir: str
         Directory to save visualized images.
     """
+    # 设置默认可视化目录
+    if vis_dir is None:
+        vis_dir = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), 'vis/simulated_trajs')
+    
     # 创建输出目录
     os.makedirs(vis_dir, exist_ok=True)
 

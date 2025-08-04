@@ -58,7 +58,7 @@ def main(cfg: DictConfig) -> None:
     )
 
     #TODO: change here when use trainval
-    # cfg.metric_cache_path = '/data2/yingyan_li/repo/WoTE//dataset/metric_cache/trainval'
+    # cfg.metric_cache_path = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), 'dataset/metric_cache/trainval')
     metric_cache_loader = MetricCacheLoader(Path(cfg.metric_cache_path))
 
     tokens_to_evaluate = list(set(scene_loader.tokens) & set(metric_cache_loader.tokens))
@@ -109,7 +109,7 @@ def format_and_save_ego_states(score_rows, num_clusters, output_dir):
         score_dict[key] = value
 
     # Save formatted score_rows using numpy
-    save_path = f'/data2/yingyan_li/repo/WoTE//simulated_ego_states_{num_clusters}_trainval.npy'
+    save_path = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), f'simulated_ego_states_{num_clusters}_trainval.npy')
     np.save(save_path, score_dict, allow_pickle=True)
 
 

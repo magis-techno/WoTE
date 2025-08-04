@@ -1,7 +1,7 @@
 from typing import Tuple
 import hydra
 from hydra.utils import instantiate
-import logging, torch
+import logging, torch, os
 from omegaconf import DictConfig
 from pathlib import Path
 import pytorch_lightning as pl
@@ -124,7 +124,7 @@ def main(cfg: DictConfig) -> None:
                 )
 
     logger.info("Starting Training")
-    # ckpt_path = '/data2/yingyan_li/repo/WoTE//exp/training_transfuser_agent/10ep/lightning_logs/version_0/checkpoints/epoch=10-step=3663.ckpt'
+    # ckpt_path = os.path.join(os.environ.get('NAVSIM_EXP_ROOT', ''), 'training_transfuser_agent/10ep/lightning_logs/version_0/checkpoints/epoch=10-step=3663.ckpt')
     trainer.fit(
         model=lightning_module,
         train_dataloaders=train_dataloader,

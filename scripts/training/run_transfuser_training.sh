@@ -9,7 +9,7 @@
 # # 评估脚本
 python $NAVSIM_DEVKIT_ROOT/navsim/planning/script/run_pdm_score.py \
 agent=transfuser_agent \
-'agent.checkpoint_path="/data2/yingyan_li/repo/WoTE//exp/transfuser/default/lightning_logs/version_2/checkpoints/epoch=19-step=6660.ckpt"' \
+'agent.checkpoint_path="$NAVSIM_EXP_ROOT/transfuser/default/lightning_logs/version_2/checkpoints/epoch=19-step=6660.ckpt"' \
 experiment_name=eval/transfuser/default/ \
 split=test \
 scene_filter=navtest \
