@@ -1,6 +1,6 @@
 # Configuration: Choose the split to cache
-SPLIT=test
-# SPLIT=trainval
+# SPLIT=test
+SPLIT=trainval
 
 echo "🔄 Generating metric cache for split: $SPLIT"
 echo "📁 Cache will be saved to: $NAVSIM_EXP_ROOT/metric_cache"
