@@ -83,7 +83,7 @@ class SceneLoader:
     ):
         if train_debug:
             print('begin loading scene_frames_dicts')
-            debug_file_path = os.path.join(os.environ.get('WOTE_DATASET_ROOT', ''), 'scene_frames_dicts_debug.npy')
+            debug_file_path = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), 'dataset/scene_frames_dicts_debug.npy')
             self.scene_frames_dicts = np.load(debug_file_path, allow_pickle=True).item()
             print('finish loading scene_frames_dicts')
         else:

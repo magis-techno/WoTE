@@ -169,6 +169,7 @@ class WoTEConfig:
 
     def __post_init__(self):
         # Set dynamic paths based on environment variables and num_traj_anchor
-        wote_dataset_root = os.environ.get('WOTE_DATASET_ROOT', '')
-        self.sim_reward_dict_path = os.path.join(wote_dataset_root, f'extra_data/planning_vb/formatted_pdm_score_{self.num_traj_anchor}.npy')
-        self.cluster_file_path = os.path.join(wote_dataset_root, f'extra_data/planning_vb/trajectory_anchors_{self.num_traj_anchor}.npy')
+        # extra_data is shared data, use OPENSCENE_DATA_ROOT
+        openscene_data_root = os.environ.get('OPENSCENE_DATA_ROOT', '')
+        self.sim_reward_dict_path = os.path.join(openscene_data_root, f'extra_data/planning_vb/formatted_pdm_score_{self.num_traj_anchor}.npy')
+        self.cluster_file_path = os.path.join(openscene_data_root, f'extra_data/planning_vb/trajectory_anchors_{self.num_traj_anchor}.npy')

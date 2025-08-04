@@ -133,7 +133,7 @@ def format_and_save_scores(score_rows, num_clusters, output_dir):
         score_dict[key] = value
 
     # Save formatted score_rows using numpy
-    save_path = os.path.join(os.environ.get('WOTE_DATASET_ROOT', ''), f'extra_data/planning_vb/formatted_pdm_score_{num_clusters}.npy')
+    save_path = os.path.join(os.environ.get('OPENSCENE_DATA_ROOT', ''), f'extra_data/planning_vb/formatted_pdm_score_{num_clusters}.npy')
     np.save(save_path, score_dict, allow_pickle=True)
 
     print(f'Saved formatted scores to {save_path}')
@@ -234,7 +234,7 @@ def load_predefined_trajectories() -> List[Any]:
     Assumes that the trajectories are stored in a serialized format (e.g., pickle).
     """
 
-    path = os.path.join(os.environ.get('WOTE_DATASET_ROOT', ''), f'extra_data/planning_vb/trajectory_anchors_{num_clusters}.npy')
+    path = os.path.join(os.environ.get('OPENSCENE_DATA_ROOT', ''), f'extra_data/planning_vb/trajectory_anchors_{num_clusters}.npy')
     with open(path, "rb") as f:
         trajectories = np.load(f)
     return trajectories
