@@ -1,4 +1,4 @@
-python $NAVSIM_DEVKIT_ROOT/navsim/planning/script/run_training.py \
+python $NAVSIM_DEVKIT_ROOT/planning/script/run_training.py \
 experiment_name=training_ego_mlp_agent \
 trainer.params.max_epochs=50 \
 # agent=transfuser_agent \

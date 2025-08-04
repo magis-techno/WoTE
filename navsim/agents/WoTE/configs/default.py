@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Tuple, Dict
+import os
 
 from nuplan.common.maps.abstract_map import SemanticMapLayer
 from nuplan.common.actor_state.tracked_objects_types import TrackedObjectType
@@ -13,7 +14,7 @@ class WoTEConfig:
         time_horizon=4, interval_length=0.5
     )
 
-    resnet34_path = '/home/yingyan.li/repo/WoTE/ckpts/resnet34.pth'
+    resnet34_path = os.path.join(os.environ.get('WOTE_PROJECT_ROOT', ''), 'ckpts/resnet34.pth')
     image_architecture: str = "resnet34"
     lidar_architecture: str = "resnet34"
 
@@ -123,8 +124,8 @@ class WoTEConfig:
     num_traj_anchor: int = 256
     
     use_sim_reward: bool = True
-    sim_reward_dict_path: str = f'/home/yingyan.li/repo/WoTE/dataset/extra_data/planning_vb/formatted_pdm_score_{num_traj_anchor}.npy'
-    cluster_file_path = f'/home/yingyan.li/repo/WoTE/dataset/extra_data/planning_vb/trajectory_anchors_{num_traj_anchor}.npy'
+    sim_reward_dict_path: str = ""  # Will be set in __post_init__
+    cluster_file_path: str = ""     # Will be set in __post_init__
     num_plan_queries: int = 32
 
     # map loss
@@ -165,3 +166,9 @@ class WoTEConfig:
     offset_im_reward_weight = 0.1
     im_loss_weight = 1.0
     metric_loss_weight = 1.0
+
+    def __post_init__(self):
+        # Set dynamic paths based on environment variables and num_traj_anchor
+        wote_dataset_root = os.environ.get('WOTE_DATASET_ROOT', '')
+        self.sim_reward_dict_path = os.path.join(wote_dataset_root, f'extra_data/planning_vb/formatted_pdm_score_{self.num_traj_anchor}.npy')
+        self.cluster_file_path = os.path.join(wote_dataset_root, f'extra_data/planning_vb/trajectory_anchors_{self.num_traj_anchor}.npy')

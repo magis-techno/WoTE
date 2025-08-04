@@ -1,4 +1,4 @@
-# python $NAVSIM_DEVKIT_ROOT/navsim/planning/script/run_training.py \
+# python $NAVSIM_DEVKIT_ROOT/planning/script/run_training.py \
 # agent=transfuser_agent \
 # experiment_name=transfuser/default \
 # dataloader.params.num_workers=8 \
@@ -7,7 +7,7 @@
 # split=trainval \
 
 # # 评估脚本
-python $NAVSIM_DEVKIT_ROOT/navsim/planning/script/run_pdm_score.py \
+python $NAVSIM_DEVKIT_ROOT/planning/script/run_pdm_score.py \
 agent=transfuser_agent \
 'agent.checkpoint_path="$NAVSIM_EXP_ROOT/transfuser/default/lightning_logs/version_2/checkpoints/epoch=19-step=6660.ckpt"' \
 experiment_name=eval/transfuser/default/ \

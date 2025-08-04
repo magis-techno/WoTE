@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import lzma
+import os
 import pickle
 
 from pathlib import Path
@@ -82,7 +83,8 @@ class SceneLoader:
     ):
         if train_debug:
             print('begin loading scene_frames_dicts')
-            self.scene_frames_dicts = np.load('/home/yingyan.li/repo/WoTE/dataset/scene_frames_dicts_debug.npy', allow_pickle=True).item()
+            debug_file_path = os.path.join(os.environ.get('WOTE_DATASET_ROOT', ''), 'scene_frames_dicts_debug.npy')
+            self.scene_frames_dicts = np.load(debug_file_path, allow_pickle=True).item()
             print('finish loading scene_frames_dicts')
         else:
             print('Begin filtering scenes')
