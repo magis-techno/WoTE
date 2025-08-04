@@ -68,13 +68,13 @@ You can either download the extra data directly from [🌐 Google Drive](https:/
 - **K-means anchor trajectories** (`trajectory_anchors_256.npy`):
 
 ```bash
-python scripts/misc/k_means_trajs.py
+python scripts/miscs/k_means_trajs.py
 ```
 
 - **Reward generation** (`formatted_pdm_score_256.npy`):
 
 ```bash
-bash scripts/misc/gen_pdm_score.sh
+bash scripts/miscs/gen_pdm_score.sh
 ```
 
 ### 📁 c. Precompute Metric Cache

@@ -1,4 +1,4 @@
-python scripts/misc/gen_multi_trajs_pdm_score.py \
+python scripts/miscs/gen_multi_trajs_pdm_score.py \
 agent=WoTE_agent \
 'agent.checkpoint_path="$NAVSIM_EXP_ROOT/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=9990.ckpt"' \
 agent.config._target_=navsim.agents.WoTE.configs.default.WoTEConfig \
