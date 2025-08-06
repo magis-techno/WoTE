@@ -30,23 +30,34 @@ fi
 echo ""
 echo "🔍 预估缓存进度..."
 
-# 根据split估算总场景数
-SPLIT=${1:-trainval}
-case $SPLIT in
-    "trainval")
-        estimated_total=175000  # 大概的trainval场景数
-        ;;
-    "test")
-        estimated_total=45000   # 大概的test场景数
-        ;;
-    *)
-        estimated_total=0
-        ;;
-esac
+# 检查元数据CSV文件来判断是否完成
+METADATA_PATH="$NAVSIM_EXP_ROOT/metric_cache/metadata"
+csv_count=$(find "$METADATA_PATH" -name "*.csv" 2>/dev/null | wc -l)
 
-if [ $estimated_total -gt 0 ] && [ $total_cached -gt 0 ]; then
-    progress=$((total_cached * 100 / estimated_total))
-    echo "  估算进度: $total_cached / ~$estimated_total ($progress%)"
+if [ $csv_count -gt 0 ]; then
+    echo "  ✅ 发现元数据CSV文件 → 缓存任务可能已完成！"
+    
+    # 计算CSV中的记录数
+    csv_total=0
+    for csv_file in $(find "$METADATA_PATH" -name "*.csv"); do
+        if [ -f "$csv_file" ]; then
+            csv_lines=$(($(wc -l < "$csv_file") - 1))  # 减去header行
+            csv_total=$((csv_total + csv_lines))
+        fi
+    done
+    
+    echo "  📊 数据验证:"
+    echo "    PKL文件数: $total_cached"
+    echo "    CSV记录数: $csv_total"
+    
+    if [ $total_cached -eq $csv_total ]; then
+        echo "  ✅ 数据一致 → 缓存任务已完成！"
+    else
+        echo "  ⚠️  数据不一致，建议重新运行缓存"
+    fi
+else
+    echo "  ⏳ 未发现元数据CSV → 任务可能仍在进行或需要恢复"
+    echo "  💡 NavSim trainval包含约50万+场景，你的${total_cached}个文件表明接近完成"
 fi
 
 echo ""
