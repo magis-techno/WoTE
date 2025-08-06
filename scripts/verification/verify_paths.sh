@@ -7,11 +7,17 @@ echo "=========================="
 
 # 检查关键环境变量
 echo "📂 环境变量检查："
+echo "  WOTE_PROJECT_ROOT=$WOTE_PROJECT_ROOT"
 echo "  NAVSIM_EXP_ROOT=$NAVSIM_EXP_ROOT"
 echo "  NAVSIM_DEVKIT_ROOT=$NAVSIM_DEVKIT_ROOT"
 echo "  OPENSCENE_DATA_ROOT=$OPENSCENE_DATA_ROOT"
 
 # 检查环境变量是否已设置
+if [ -z "$WOTE_PROJECT_ROOT" ]; then
+    echo "❌ WOTE_PROJECT_ROOT 未设置！请运行: source setup_env.sh"
+    exit 1
+fi
+
 if [ -z "$NAVSIM_EXP_ROOT" ]; then
     echo "❌ NAVSIM_EXP_ROOT 未设置！请运行: source setup_env.sh"
     exit 1
@@ -30,8 +36,8 @@ echo ""
 echo "📁 路径解析检查："
 echo "  期望的缓存路径: $EXPECTED_CACHE_PATH"
 
-# 检查是否存在错误的嵌套路径
-NESTED_PATH="$NAVSIM_EXP_ROOT/metric_cache/metadata/$NAVSIM_EXP_ROOT/metric_cache"
+# 检查是否存在错误的嵌套路径（项目根目录下的错误路径）
+NESTED_PATH="$WOTE_PROJECT_ROOT/\$NAVSIM_EXP_ROOT/metric_cache/metadata/\$NAVSIM_EXP_ROOT/metric_cache"
 if [ -d "$NESTED_PATH" ]; then
     echo "⚠️  发现错误的嵌套路径: $NESTED_PATH"
     echo "   需要运行数据迁移脚本"

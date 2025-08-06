@@ -11,9 +11,15 @@ if [ -z "$NAVSIM_EXP_ROOT" ]; then
     exit 1
 fi
 
+if [ -z "$WOTE_PROJECT_ROOT" ]; then
+    echo "❌ WOTE_PROJECT_ROOT 未设置！请运行: source setup_env.sh"
+    exit 1
+fi
+
 # 定义路径
 CORRECT_CACHE_PATH="$NAVSIM_EXP_ROOT/metric_cache"
-WRONG_NESTED_PATH="$NAVSIM_EXP_ROOT/metric_cache/metadata/$NAVSIM_EXP_ROOT/metric_cache"
+# 实际的错误路径：项目根目录下的嵌套路径
+WRONG_NESTED_PATH="$WOTE_PROJECT_ROOT/\$NAVSIM_EXP_ROOT/metric_cache/metadata/\$NAVSIM_EXP_ROOT/metric_cache"
 METADATA_PATH="$NAVSIM_EXP_ROOT/metric_cache/metadata"
 
 echo "📂 路径信息："
