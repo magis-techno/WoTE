@@ -37,7 +37,7 @@ from nuplan.planning.simulation.trajectory.trajectory_sampling import Trajectory
 
 logger = logging.getLogger(__name__)
 
-num_clusters = 128
+num_clusters = 256
 num_horizons = 8
 compute_state_only = False
 if compute_state_only:
