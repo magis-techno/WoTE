@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import sys
 import numpy as np
+from typing import Optional
 
 PRINT_SAMPLES = 10
 
@@ -46,7 +47,7 @@ def summarize_tokens(name: str, tokens: set[str]):
         print(f"{name} samples (up to {PRINT_SAMPLES}): {sample}")
 
 
-def extract_token_from_cache_path(line: str) -> str | None:
+def extract_token_from_cache_path(line: str) -> Optional[str]:
     # Expect .../<log_name>/<scenario_type>/<token>/metric_cache.pkl[.xz]
     parts = Path(line.strip()).parts
     if len(parts) < 2:
