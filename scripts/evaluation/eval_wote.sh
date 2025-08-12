@@ -9,11 +9,11 @@ export OPENSCENE_DATA_ROOT="$OPENSCENE_DATA_ROOT"
 
 CONFIG_NAME=default
 
-# evaluation, change the checkpoint_path
+# evaluation: ensure the metric cache exists for the chosen split (test/trainval)
 python ./navsim/planning/script/run_pdm_score.py \
 agent=WoTE_agent \
-'agent.checkpoint_path="$NAVSIM_EXP_ROOT/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=19950.ckpt"' \
+agent.checkpoint_path=${oc.env:NAVSIM_EXP_ROOT}/WoTE/default/lightning_logs/version_0/checkpoints/epoch=29-step=19950.ckpt \
 agent.config._target_=navsim.agents.WoTE.configs.${CONFIG_NAME}.WoTEConfig \
 experiment_name=eval/WoTE/${CONFIG_NAME}/ \
 split=test \
-scene_filter=navtest \
+scene_filter=navtest
